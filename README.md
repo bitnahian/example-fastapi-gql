@@ -3,5 +3,6 @@
 ## Build & Run
 
 ```sh
-make run-local
+pipenv lock -r > requirements.txt # Update requirements first
+make run-local # Run locally
 ```
