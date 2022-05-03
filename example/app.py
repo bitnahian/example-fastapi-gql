@@ -36,23 +36,27 @@ async def get_api_key(api_key_header: str = Security(api_key_header)):
 class Query(ObjectType):
     # this defines a Field `hello` in our Schema with a single Argument `name`
     hello = String(name=String(default_value="stranger"))
+    complex_hello = String()
 
     # our Resolver method takes the GraphQL context (root, info) as well as
     # Argument (name) for the Field and returns data for the query Response
     async def resolve_hello(root, info, name):
-        # Perform some async tasks first
-        # L = await asyncio.gather(
-        #     factorial("A", 2),
-        #     factorial("B", 3),
-        #     factorial("C", 4),
-        # )
-        # logger.info(L)
-
-        # Make a couple of background tasks
-        # background = info.context['background']
-        # background.add_task(example_background_task, "first", 1)
-        # background.add_task(example_background_task, "second", 2)
         return f'Hello {name}!'
+    
+    async def resolve_complex_hello(root, info):
+         # Perform some async tasks first
+        L = await asyncio.gather(
+            factorial("A", 2),
+            factorial("B", 3),
+            factorial("C", 4),
+        )
+        logger.info(L)
+        # Make a couple of background tasks
+        background = info.context['background']
+        background.add_task(example_background_task, "first", 1)
+        background.add_task(example_background_task, "second", 2)
+
+        return "Complex"
 
 schema = Schema(query=Query)
 
