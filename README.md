@@ -1,4 +1,4 @@
-# Cloud Run Shortest Pick Path API
+# Example Fastapi GraphQL App
 
 ## Build & Run
 
