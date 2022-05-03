@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+graphene = ">=3.0"
+starlette-graphene3 = "==0.5.1"
+fastapi = "==0.75.2"
+uvicorn = {version = "==0.17.6", extras = ["standard"]}
+gunicorn = "==20.1.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
