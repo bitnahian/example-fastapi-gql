@@ -6,3 +6,12 @@
 pipenv lock -r > requirements.txt # Update requirements first
 make run-local # Run locally
 ```
+
+## In Playground
+
+Use the following for Query-Header 
+```json
+{
+  "X-API-Key" : "TEST"
+}
+```
