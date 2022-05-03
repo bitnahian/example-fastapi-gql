@@ -4,12 +4,10 @@ DEPLOY ?= 0
 
 
 run-local:
-	pipenv lock -r > requirements.txt
 	docker build --tag example-fastapi-gql .
 	@echo Delete old container
 	docker rm -f example-fastapi-gql-c
 	@echo Run new container
-	rm requirements.txt
 	docker run --rm \
 	-p 9090:8080 \
 	-e PORT=8080 \
